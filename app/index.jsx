@@ -1,7 +1,7 @@
 var React = require('react')
   , Router = require('react-router');
 
-var Hello = require('./components/Hello.jsx');
+var Graphs = require('./components/Graphs.jsx');
 
 require('./styles/index.scss');
 
@@ -9,7 +9,8 @@ var App = React.createClass({
   render() {
     return (
       <main className="app">
-        <h1>NEW APP</h1>
+        <h1>DevLunch</h1>
+        <h2>The Stats</h2>
         <Router.RouteHandler {...this.props} />
       </main>
     );
@@ -18,7 +19,7 @@ var App = React.createClass({
 
 var routes = (
   <Router.Route name="app" path="/" handler={App}>
-    <Router.DefaultRoute handler={Hello} />
+    <Router.DefaultRoute handler={Graphs} />
   </Router.Route>
 );
 

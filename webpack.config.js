@@ -4,6 +4,7 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  debug: true,
   devtool: 'eval!inline-source-map',
   entry: {
     app: [
@@ -33,7 +34,13 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader!autoprefixer-loader!sass-loader'
+          'css-loader!autoprefixer-loader!ruby-sass-loader?'
+          + 'includePaths[]='
+          + (path.resolve(__dirname, 'node_modules/bourbon/app/assets/stylesheets'))
+          + '&includePaths[]='
+          + (path.resolve(__dirname, 'node_modules/bourbon-neat/app/assets/stylesheets'))
+          + '&includePaths[]='
+          + (path.resolve(__dirname, "node_modules/normalize.css"))
         )
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
@@ -43,5 +50,8 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
-  ]
+  ],
+  resolve: {
+    extensions: ['', '.js', '.json', '.jsx']
+  }
 };
