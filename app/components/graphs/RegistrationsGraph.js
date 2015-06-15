@@ -66,7 +66,6 @@ var RegistrationsGraph = (function() {
     var yAxis = d3.svg.axis()
       .scale(scales.y)
       .tickSize(width)
-      .ticks(5)
       .orient('right')
 
     var yx = svg.select('.y.axis')
