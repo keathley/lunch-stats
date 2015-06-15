@@ -3,7 +3,7 @@ var d3 = require('d3')
 var svg;
 
 var AttendanceGraph = module.exports = {
-  margin: { top: 20, right: 20, bottom: 30, left: 50 },
+  margin: { top: 20, right: 25, bottom: 30, left: 50 },
   width: 0,
   height: 0,
 
@@ -16,7 +16,7 @@ var AttendanceGraph = module.exports = {
         .attr('width', this.width + this.margin.right + this.margin.left)
         .attr('height', this.height + this.margin.top + this.margin.bottom)
       .append('g')
-        .attr('transform', 'translate(' + this.margin.top + ',' + this.margin.bottom + ')')
+        .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')')
 
     svg.append('g')
         .attr('class', 'y axis')
