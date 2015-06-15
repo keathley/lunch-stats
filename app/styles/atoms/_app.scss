@@ -1,3 +1,14 @@
 .app {
   @include outer-container;
+  margin-top: 50px;
+
+  > h1 {
+    font-size: 82px;
+    font-weight: 900;
+  }
+
+  > h2 {
+    font-size: 34px;
+    font-weight: 600;
+  }
 }

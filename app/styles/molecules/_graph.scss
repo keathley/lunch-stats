@@ -1,0 +1,29 @@
+.d3 {
+  font-size: 10px;
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .axis .tick {
+    stroke: none;
+  }
+
+  .y.axis path {
+    display: none;
+  }
+
+  .y.axis line {
+    stroke: #ccc;
+    stroke-dasharray: 2,2;
+  }
+
+  .line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+}

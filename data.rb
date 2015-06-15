@@ -73,19 +73,21 @@ class Meetup
 end
 
 class Event
-  attr_reader :id, :name, :time, :timezone, :description, :venue_id, :venue_name
+  attr_reader :id, :name, :time, :timezone, :description, :venue_id, :venue_name,
+              :announced_at
   attr_accessor :rsvps
 
   def initialize(json)
-    @event_json  = json
-    @id          = @event_json.fetch(:id)
-    @name        = @event_json.fetch(:name)
-    @time        = @event_json.fetch(:time)
-    @description = @event_json.fetch(:description) { '' }
-    @venue       = json.fetch(:venue, {})
-    @venue_id    = @venue[:id]
-    @venue_name  = @venue[:name]
-    @rsvps = []
+    @event_json   = json
+    @id           = @event_json.fetch(:id)
+    @name         = @event_json.fetch(:name)
+    @time         = @event_json.fetch(:time)
+    @announced_at = @event_json.fetch(:announced_at)
+    @description  = @event_json.fetch(:description) { '' }
+    @venue        = json.fetch(:venue, {})
+    @venue_id     = @venue[:id]
+    @venue_name   = @venue[:name]
+    @rsvps        = []
   end
 
   def to_h
@@ -97,7 +99,8 @@ class Event
       description: @description,
       venue_id: @venue_id,
       venue_name: @venue_name,
-      rsvps: rsvps.map(&:to_h)
+      announced_at: announced_at,
+      rsvps: rsvps.map(&:to_h),
     }
   end
 end

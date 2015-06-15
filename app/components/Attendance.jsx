@@ -4,33 +4,35 @@ var AttendanceGraph = require('./graphs/AttendanceGraph.js')
 
 var Attendance = React.createClass({
   propTypes: {
-    data: React.PropTypes.array,
-    domain: React.PropTypes.object
+    data: React.PropTypes.array
   },
   componentDidMount: function() {
-    var el = this.getDOMNode()
-    AttendanceGraph.create(el, {
-      width: '100%',
-      height: '300px'
-    }, this.getChartState())
+    AttendanceGraph.create(
+      this.getDOMNode(),
+      this.getChartProps(),
+      this.getChartState()
+    )
   },
   componentDidUpdate: function() {
-    var el = this.getDOMNode();
-    AttendanceGraph.update(el, this.getChartState())
+    AttendanceGraph.update(
+      this.getChartProps(),
+      this.getChartState()
+    )
   },
-  getChartState: function() {
+  getChartProps() {
+    return { width: 900, height: 300 }
+  },
+  getChartState() {
     return {
-      data: this.props.data,
-      domain: this.props.domain
+      data: this.props.data
     }
   },
   componentWillUnmount: function() {
-    var el = this.getDOMNode()
-    AttendanceGraph.destroy(el)
+    AttendanceGraph.destroy(this.getDOMNode())
   },
   render: function() {
     return (
-      <div className="attendance-chart" />
+      <div className="d3 attendance-chart" />
     );
   }
 });

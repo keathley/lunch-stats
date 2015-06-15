@@ -36,11 +36,9 @@ module.exports = {
           'style-loader',
           'css-loader!autoprefixer-loader!ruby-sass-loader?'
           + 'includePaths[]='
-          + (path.resolve(__dirname, 'node_modules/bourbon/app/assets/stylesheets'))
+          + (path.resolve(__dirname, './node_modules/bourbon/app/assets/stylesheets'))
           + '&includePaths[]='
-          + (path.resolve(__dirname, 'node_modules/bourbon-neat/app/assets/stylesheets'))
-          + '&includePaths[]='
-          + (path.resolve(__dirname, "node_modules/normalize.css"))
+          + (path.resolve(__dirname, './node_modules/bourbon-neat/app/assets/stylesheets'))
         )
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
@@ -52,6 +50,6 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx', '.scss', '.css']
   }
 };

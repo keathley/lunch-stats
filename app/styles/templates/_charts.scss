@@ -1,11 +1,3 @@
 #charts {
-  @include outer-container;
-
-  > h1 {
-    font-size: 96px;
-  }
-
-  > h2 {
-    font-size: 28px;
-  }
+  @include span-columns(12);
 }
