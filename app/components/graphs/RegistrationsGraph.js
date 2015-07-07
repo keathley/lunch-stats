@@ -84,7 +84,6 @@ var RegistrationsGraph = (function() {
   }
 
   function _drawArea(scales, data) {
-    console.log(data);
     var area = d3.svg.area()
       .x(  d => scales.x(d.date) )
       .y0(height)
