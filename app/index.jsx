@@ -18,7 +18,7 @@ var App = React.createClass({
 });
 
 var routes = (
-  <Router.Route name="app" path="/" handler={App}>
+  <Router.Route name="app" path="/lunch-stats" handler={App}>
     <Router.DefaultRoute handler={Graphs} />
   </Router.Route>
 );
