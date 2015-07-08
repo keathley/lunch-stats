@@ -19,10 +19,10 @@ var App = React.createClass({
 
 var routes = (
   <Router.Route name="app" path="/" handler={App}>
-    <Router.DefaultRoute handler={Graphs} />
+    <Router.DefaultRoute handler={ Graphs } />
   </Router.Route>
 );
 
-Router.run(routes, Router.HistoryLocation, (Handler, state) => {
+Router.run(routes, Router.HashLocation, (Handler, state) => {
   React.render(<Handler/>, document.body);
 });
