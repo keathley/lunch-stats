@@ -13,14 +13,14 @@ var Graphs = React.createClass({
   },
   componentDidMount() {
     ajax({
-        url: '/events.json'
+        url: 'events.json'
       , type: 'json'
       , method: 'get'
       , contentType: 'application/json'
       , success: this.handleEventsSuccess
     })
     ajax({
-        url: '/members.json'
+        url: 'members.json'
       , type: 'json'
       , method: 'get'
       , contentType: 'application/json'

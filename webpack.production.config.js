@@ -38,8 +38,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
-      title: 'Lunch Stats',
-      filename: path.resolve(__dirname, 'index.html')
+      title: 'Lunch Stats'
     })
   ],
   resolve: {
